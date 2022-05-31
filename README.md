@@ -8,10 +8,12 @@ A library of data structures and related algorithms in Python for general purpos
 Showing respective completed entries
 | Data Structure | Concluded |
 | --- | --- |
-| Linked Lists | &#x2611; | 
-| Trees | &#9746; |
-| Stacks | &#x2612; |
-| Queues | &#x2612; | 
+| Singly Linked List | &#x2611; | 
+| Doubly Linked List | &#x2611; | 
+| Circular Linked List | &#x2612; | 
+| Trees | &#x2612; |
+| Stacks | &#x2611; |
+| Queues | &#x2611; | 
 | Heaps | &#x2612; | 
 | Vectors / ArrayLists | &#x2612; |
 | Hash Tables | &#x2612; |
