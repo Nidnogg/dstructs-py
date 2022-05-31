@@ -10,7 +10,7 @@ Showing respective completed entries
 | --- | --- |
 | Singly Linked List | &#x2611; | 
 | Doubly Linked List | &#x2611; | 
-| Circular Linked List | &#x2612; | 
+| Circular Linked List | &#x2611; | 
 | Trees | &#x2612; |
 | Stacks | &#x2611; |
 | Queues | &#x2611; | 

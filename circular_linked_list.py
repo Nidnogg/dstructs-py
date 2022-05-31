@@ -1,3 +1,4 @@
+from requests import head
 from linked_list import LinkedList
 
 class CircularLinkedList():
@@ -18,7 +19,6 @@ class CircularLinkedList():
                 node.next = Node(data=elem)
                 node = node.next
                 
-            print("final node  {}".format(node.data))
             node.next = self.head
 
     def __repr__(self):
@@ -35,6 +35,8 @@ class CircularLinkedList():
         node = self.head
         starting_node = self.head  
 
+        yield node
+        node = node.next
         while node is not starting_node:
             yield node
             node = node.next
@@ -72,8 +74,14 @@ class CircularLinkedList():
     def prepend(self, node):
         """Inserts element at start of list 
         """
+        cur_node = self.head
+        while cur_node.next != self.head:
+            cur_node = cur_node.next
+        
+        cur_node.next = node
         node.next = self.head
         self.head = node
+
 
     def append(self, node):
         """Inserts element at end of list (before None pointer)
@@ -84,8 +92,9 @@ class CircularLinkedList():
 
         for cur_node in self:
             pass
-
+        
         cur_node.next = node
+        node.next = self.head
 
     def insert_append(self, node, node_to_append):
         """Inserts node element after node with node_to_append data
@@ -124,7 +133,16 @@ class CircularLinkedList():
         if(self.head is None):
             raise Exception("Cannot remove from empty linked list")
         
+        if(self.head.next == self.head):
+            self.head = None
+            return
+
         if(self.head.data == node_to_remove):
+            for cur_node in self:
+                if cur_node.next == self.head:
+                    cur_node.next = self.head.next
+                    break
+
             self.head = self.head.next
             return
 
@@ -133,7 +151,7 @@ class CircularLinkedList():
             next_node = cur_node.next
             if(next_node.data == node_to_remove):
                 cur_node.next = next_node.next
-                next_node = None
+                del next_node
                 return 
             
         raise Exception("Couldn't find Node with \"{}\" data.".format(node_to_remove))
@@ -149,5 +167,9 @@ class Node:
 llist = CircularLinkedList(["a", "b", "c"])
 
 llist.print_list(llist.find("a"))
+
+test = Node("test")
+
+llist.remove("a")
 
 
